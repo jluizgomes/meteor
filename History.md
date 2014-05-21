@@ -35,6 +35,10 @@
 * The legacy polling observe driver handles errors communicating with MongoDB
   better and no longer gets "stuck" in some circumstances.
 
+* Automatically rewind cursors before calls to `fetch`, `forEach`, or `map`. On
+  the client, don't cache the return value of `cursor.count()` (consistently
+  with the server behavior). `cursor.rewind()` is now a no-op. #2114
+
 * Upgraded dependencies:
   - node: 0.10.28 (from 0.10.26)
 
